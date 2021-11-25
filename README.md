@@ -11,6 +11,7 @@ A lightweight PHP file which makes really easier your SQL connections and querie
   `$db->query('SELECT * FROM tablename WHERE id = :id', ["id" => 1]);` Here's a prepared statement
   ##### Or
   `$db->unsafe_query('SELECT * FROM tablename WHERE id = 1');` Here's a unprepared statement (not safe if there's parameters)
+  <br/>
   (you don't have to `fetch`, `$db->query` and `$db->unsafe_query` return the fetched rows)
   
 ### Finally, close your database connection : 
