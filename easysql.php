@@ -30,10 +30,14 @@
     }
 
     public function unsafe_query(string $query, $fetch_method = PDO::FETCH_BOTH){
-      $stmt = $this->db->query($query);
-      $result = $stmt->fetchAll($fetch_method);
-      $stmt->closeCursor();
-      return $result;
+      try {
+        $stmt = $this->db->query($query);
+        $result = $stmt->fetchAll($fetch_method);
+        $stmt->closeCursor();
+        return $result;
+      } catch(PDOException $e) {
+        die(new PDOException($e->getMessage(), (int)$e->getCode()));
+      }
     }
 
     public function close(){
