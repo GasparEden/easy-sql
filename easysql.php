@@ -16,10 +16,7 @@
       try {
 
         $stmt = $this->db->prepare($query);
-        foreach($params as $k=>$v){
-          $stmt->bindParam(":$k", $v);
-        }
-        $stmt->execute();
+        $stmt->execute($params);
         $result = $stmt->fetchAll($fetch_method);
         $stmt->closeCursor();
         return $result;
