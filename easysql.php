@@ -3,7 +3,6 @@
   class Connection {
 
     protected $db = null;
-
     public function __construct(string $db_name, string $ip = "127.0.0.1", string $username = "root", string $password = "", array $connection_params = [], string $charset = "utf8", int $port = 3306){
       try {
         $this->db = new PDO("mysql:host=$ip;dbname=$db_name;charset=$charset;port=$port", $username, $password, $connection_params);
